@@ -70,7 +70,11 @@ int main(int argc, char **argv) {
     
     //Check for -o option and find the pattern in command-line args
     if (argc==3) {
-        if (strcmp(argv[1],"-i")==0) caseSensitive=0;  //Ignore case
+        if (strcmp(argv[1],"-i")==0){
+			caseSensitive=0;  //Ignore case
+		} else {
+			usage(argv[0]);
+		}
         pattern = argv[2];           //Reference to pattern in args
     } else if (argc==2) {
         pattern = argv[1];           //Reference to pattern in args
@@ -101,6 +105,7 @@ int main(int argc, char **argv) {
 
 		}
 		if(strstr(s, pattern) != NULL) {
+			exitStatus = 1;
 			printf("%s", s);
 		}
 	}
