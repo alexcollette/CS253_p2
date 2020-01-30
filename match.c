@@ -87,7 +87,22 @@ int main(int argc, char **argv) {
 	
 	char s[256];
 	while(fgets(s, sizeof(s), stdin) != NULL) {
-	  printf("%s", s);
+		if(caseSensitive == 0){
+			int i = 0;
+			while(s[i]){
+				s[i] = tolower(s[i]);
+				i++;
+			}
+			int j = 0;
+            while(pattern[j]){
+                pattern[j] = tolower(pattern[j]);
+                j++;
+            }
+
+		}
+		if(strstr(s, pattern) != NULL) {
+			printf("%s", s);
+		}
 	}
 
 
