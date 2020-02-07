@@ -85,9 +85,6 @@ int main(int argc, char **argv) {
 	//Verify the pattern is not an empty string
     if (strlen(pattern)==0) usage(argv[0]);
 
-    
-    //<<<Insert your implementation for match here>>>
-
 	
 	char s[256];
 	while(fgets(s, sizeof(s), stdin) != NULL) {
